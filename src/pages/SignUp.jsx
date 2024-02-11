@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -63,10 +62,10 @@ const SignUp = () => {
 
   return (
     <>
-      <main className='w-full flex flex-col min-h-screen items-center mx-auto py-12 bg-white'>
-        <div className=''>
-          <div className='w-full'>
-            <h1 className='text-xl font-bold'>Fiber</h1>
+      <main className='bg-white w-full min-w-screen  mx-auto flex flex-col min-h-screen p-8 sm:p-0'>
+        <div className=' sm:flex w-full items-center justify-center mx-auto'>
+          <div className='w-full mx-auto flex flex-col items-center justify-start'>
+            <h1 className='text-xl font-bold text-left'>Fiber</h1>
 
             <h2 className='text-4xl font-bold mt-12 max-w-sm'>
               Create your Fiber account
@@ -85,7 +84,13 @@ const SignUp = () => {
                     type={input.type}
                     id={input.id}
                     placeholder={input.placeholder}
+                    {...register(input.name)}
                   />
+                  {errors && (
+                    <small className='text-destructive'>
+                      {errors[input.name]?.message}
+                    </small>
+                  )}
                 </div>
               ))}
               <div className='flex items-center max-w-sm space-x-2'>
@@ -97,7 +102,7 @@ const SignUp = () => {
                   </span>
                 </Label>
               </div>
-              <Button className='w-full max-w-sm mt-4 rounded text-md'>
+              <Button className='w-full max-w-sm mt-4 rounded text-md hover:bg-violet-800'>
                 Create Fiber Account
               </Button>
 
@@ -107,7 +112,6 @@ const SignUp = () => {
               </p>
             </form>
           </div>
-          <div className='hidden'>image</div>
         </div>
       </main>
     </>
