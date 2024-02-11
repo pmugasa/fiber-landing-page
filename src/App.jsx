@@ -1,9 +1,9 @@
-import { Menu, CheckCircle2 } from 'lucide-react'
+import { Menu, CheckCircle2, Star } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
-import { buttonVariants } from '@/components/ui/button'
 
 const App = () => {
+  const ratings = [1, 2, 3, 4, 5]
   return (
     <>
       <main className=' w-full mx-auto max-w-screen-xl p-8'>
@@ -77,54 +77,62 @@ const App = () => {
             </div>
           </div>
         </nav>
-        <section id='hero' className='w-full '>
-          <div className=''>
-            <div className='flex items-center justify-center'>
+        <section id='hero' className='w-full mx-auto'>
+          <div className='sm:flex flex-row-reverse items-center justify-center'>
+            <div className='flex items-center justify-center sm:w-1/2 mx-auto'>
               <img
                 src='hero-Illustration.png'
                 alt='hero-image'
-                className='w-[400px]'
+                className='w-[400px] sm:w-[900px]'
               />
             </div>
-            <div className='mt-4'>
-              <h1 className='font-bold text-4xl text-left'>
-                Create your <br />
-                portfolio in <br /> minutes.
-              </h1>
-              <p className='text-lg mt-4'>
-                With Fiber, you can setup your own personal portfolio in munutes
-                with dozens of premade, beautiful templates.
-              </p>
-            </div>
-            <div className='mt-6 text-center'>
-              <Button className='bg-primary rounded w-full mb-4'>
-                Start Free Trial
-              </Button>
-              <a
-                href='#'
-                className='text-center font-bold underline underline-offset-4 text-primary text-'
-              >
-                View Examples
-              </a>
-            </div>
-            <div className='mt-6'>
-              <div className='flex items-center justify-start space-x-2'>
-                <CheckCircle2
-                  fill='#45B19E'
-                  strokeWidth={2}
-                  size={32}
-                  className='text-white'
-                />
-                <p className='text-lg'>No Credit Card Required</p>
+            <div className='w-full sm:w-1/2'>
+              <div className='mt-4'>
+                <div className='sm:flex text-sm items-center justify-start mb-6 hidden'>
+                  {ratings.map((item) => (
+                    <Star size={16} fill='#FF962A' strokeWidth={0} key={item} />
+                  ))}
+                  <p className='font-semibold ml-2'>Rate 4.8/5 (243 reviews)</p>
+                </div>
+                <h1 className='font-bold text-4xl sm:text-5xl  text-left'>
+                  Create your portfolio in minutes.
+                </h1>
+                <p className='text-lg mt-4'>
+                  With Fiber, you can setup your own personal portfolio in
+                  munutes with dozens of premade, beautiful templates.
+                </p>
               </div>
-              <div className='flex items-center justify-start space-x-2'>
-                <CheckCircle2
-                  fill='#45B19E'
-                  strokeWidth={2}
-                  size={32}
-                  className='text-white'
-                />
-                <p className='text-lg'>10 Free Templates</p>
+              <div className='mt-6 text-center sm:flex items-center space-x-4'>
+                <Button className='bg-primary rounded w-full sm:w-40  hover:bg-purple-800 mb-6 sm:mb-0'>
+                  Start Free Trial
+                </Button>
+
+                <a
+                  href='#'
+                  className='text-center sm:text-left font-bold underline underline-offset-4 text-primary sm:w-full'
+                >
+                  View Examples
+                </a>
+              </div>
+              <div className='mt-6'>
+                <div className='flex items-center justify-start space-x-2'>
+                  <CheckCircle2
+                    fill='#45B19E'
+                    strokeWidth={2}
+                    size={32}
+                    className='text-white'
+                  />
+                  <p className='text-lg'>No Credit Card Required</p>
+                </div>
+                <div className='flex items-center justify-start space-x-2'>
+                  <CheckCircle2
+                    fill='#45B19E'
+                    strokeWidth={2}
+                    size={32}
+                    className='text-white'
+                  />
+                  <p className='text-lg'>10 Free Templates</p>
+                </div>
               </div>
             </div>
           </div>
