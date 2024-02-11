@@ -173,7 +173,7 @@ const App = () => {
             <h1 className='text-3xl sm:4xl font-bold mb-8 sm:w-1/2'>
               A good portfolio means good employability.
             </h1>
-            <div className='sm:flex items-center sm:space-x-32'>
+            <div className='sm:flex items-center sm:space-x-20'>
               {cards.map((card) => (
                 <div key={card.title} className='my-10'>
                   <div className='text-primary my-2'>{card.icon}</div>
@@ -181,7 +181,25 @@ const App = () => {
                   <h3 className='font-bold my-3'>{card.title}</h3>
                   <p className='text-lg'>{card.description}</p>
                 </div>
-              ))}{' '}
+              ))}
+            </div>
+            <div className='bg-primary  rounded-lg px-8 pt-8 sm:flex items-center mt-20'>
+              <div className='sm:w-1/2 sm:p-8'>
+                <h3 className='text-white font-bold text-4xl'>
+                  Diversify your portfolio
+                </h3>
+                <p className='text-lg text-white mt-6 text-wrap mb-4'>
+                  Create an even more impressive portfolio by creating case
+                  studies for your projects. Simply follow our step-by-step
+                  guide.
+                </p>
+                <Button className='w-full sm:w-40 text-primary font-bold bg-white mb-16 hover:bg-blue-50'>
+                  Start Free Trial
+                </Button>
+              </div>
+              <div className='sm:w-1/2 sm:pt-8'>
+                <img src='Page Image.png' alt='portfolio' className='h-full' />
+              </div>
             </div>
           </div>
         </section>
