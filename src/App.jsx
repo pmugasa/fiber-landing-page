@@ -1,13 +1,40 @@
-import { Menu, CheckCircle2, Star } from 'lucide-react'
+import {
+  Menu,
+  CheckCircle2,
+  Star,
+  Timer,
+  Code,
+  TabletSmartphone,
+} from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 
 const App = () => {
   const ratings = [1, 2, 3, 4, 5]
+  const cards = [
+    {
+      title: 'Build in minutes',
+      description:
+        'With a selection of premade templates, you can build out a portfolio in less than 10 minutes.',
+      icon: <Timer strokeWidth={2} size={32} />,
+    },
+    {
+      title: 'Add custom CSS',
+      description:
+        'Customize your personal portfolio even more with the ability to add your own custom CSS styles.',
+      icon: <Code strokeWidth={2} size={32} />,
+    },
+    {
+      title: 'Responsive',
+      description:
+        'All Fiber templates are fully responsive to ensure the experiance is seemless across all devices.',
+      icon: <TabletSmartphone strokeWidth={2} size={32} />,
+    },
+  ]
   return (
     <>
-      <main className=' w-full mx-auto max-w-screen-xl p-8'>
-        <nav className='w-full'>
+      <main className=''>
+        <nav className='w-full mx-auto max-w-screen-xl p-8'>
           <div className='flex items-center justify-between w-full '>
             <a
               href='#'
@@ -38,7 +65,7 @@ const App = () => {
               <a href='#' className='font-bold hover:text-primary '>
                 Sign In
               </a>
-              <Button className='rounded bg-primary hover:bg-purple-800'>
+              <Button className='rounded bg-primary hover:bg-blue-800'>
                 Sign Up
               </Button>
             </div>
@@ -77,7 +104,7 @@ const App = () => {
             </div>
           </div>
         </nav>
-        <section id='hero' className='w-full mx-auto'>
+        <section id='hero' className='w-full mx-auto max-w-screen-xl p-8 pb-24'>
           <div className='sm:flex flex-row-reverse items-center justify-center'>
             <div className='flex items-center justify-center sm:w-1/2 mx-auto'>
               <img
@@ -103,7 +130,7 @@ const App = () => {
                 </p>
               </div>
               <div className='mt-6 text-center sm:flex items-center space-x-4'>
-                <Button className='bg-primary rounded w-full sm:w-40  hover:bg-purple-800 mb-6 sm:mb-0'>
+                <Button className='bg-primary rounded w-full sm:w-40  hover:bg-blue-800 mb-6 sm:mb-0'>
                   Start Free Trial
                 </Button>
 
@@ -134,6 +161,24 @@ const App = () => {
                   <p className='text-lg'>10 Free Templates</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+        <section className='w-full bg-white p-20'>
+          <div className='mx-auto max-w-screen-xl p-8 w-full'>
+            <h2 className='text-primary font-bold mb-8 text-lg'>Why Fiber?</h2>
+            <h1 className='text-3xl sm:4xl font-bold mb-8 sm:w-1/2'>
+              A good portfolio means good employability.
+            </h1>
+            <div className='sm:flex items-center space-x-32'>
+              {cards.map((card) => (
+                <div key={card.title}>
+                  <div className='text-primary my-2'>{card.icon}</div>
+
+                  <h3 className='font-bold my-3'>{card.title}</h3>
+                  <p className='text-lg'>{card.description}</p>
+                </div>
+              ))}{' '}
             </div>
           </div>
         </section>
