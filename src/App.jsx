@@ -8,6 +8,16 @@ import {
 } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { useReducer } from 'react'
 
 const App = () => {
   const ratings = [1, 2, 3, 4, 5]
@@ -29,6 +39,30 @@ const App = () => {
       description:
         'All Fiber templates are fully responsive to ensure the experiance is seemless across all devices.',
       icon: <TabletSmartphone strokeWidth={2} size={32} />,
+    },
+  ]
+
+  const users = [
+    {
+      name: 'Sarah Andrews',
+      img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHwwg',
+      revenue: 100,
+      comment:
+        'Setting up my portfolio with Fiber took no more than 10 minutes. Since then, my portfolio has attracted a lot of clients and made me more than $100k.',
+    },
+    {
+      name: 'Matthew Higgins',
+      img: 'https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww',
+      revenue: 20,
+      comment:
+        "I have been getting A LOT of leads ever since I user Fiber's premade templates, now I just need to work on my case studies and I'll be ready to go!",
+    },
+    {
+      name: 'Janice Dave',
+      img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8fDB8fHww',
+      revenue: 30,
+      comment:
+        'I only just started freelancing this year and I have already made more than I ever made in my full-time job. The templates are just so amazing.',
     },
   ]
   return (
@@ -200,6 +234,43 @@ const App = () => {
               <div className='sm:w-1/2 sm:pt-8'>
                 <img src='Page Image.png' alt='portfolio' className='h-full' />
               </div>
+            </div>
+          </div>
+        </section>
+        <section className='w-full bg-white'>
+          <div className='mx-auto max-w-screen-xl p-8 w-full bg-white'>
+            <div className='w-full sm:grid grid-cols-3 gap-3'>
+              {users.map((user) => (
+                <Card key={user.name} className='my-6'>
+                  <CardHeader>
+                    <div className='flex items-center space-x-2'>
+                      <Avatar>
+                        <AvatarImage src={user.img} />
+                        <AvatarFallback>CN</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <CardTitle className='text-md text-primary font-bold'>
+                          {user.name}
+                        </CardTitle>
+                        <CardDescription>
+                          ${user.revenue}k in revenue
+                        </CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className='text-lg'>{user.comment}</p>
+                  </CardContent>
+                  <CardFooter>
+                    <Button
+                      variant='outline'
+                      className='w-full bg-white rounded outline-primary border-primary text-primary font-bold'
+                    >
+                      View {user.name.split(' ')[0]}'s Portfolio
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
