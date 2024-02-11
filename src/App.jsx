@@ -5,6 +5,7 @@ import {
   Timer,
   Code,
   TabletSmartphone,
+  Heart,
 } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
@@ -63,6 +64,25 @@ const App = () => {
       revenue: 30,
       comment:
         'I only just started freelancing this year and I have already made more than I ever made in my full-time job. The templates are just so amazing.',
+    },
+  ]
+
+  const footerItems = [
+    {
+      title: 'Sitemap',
+      links: ['Homepage', 'Pricing', 'Testimonials', 'Features'],
+    },
+    {
+      title: 'Resources',
+      links: ['Support', 'Contact', 'FAQ'],
+    },
+    {
+      title: 'Company',
+      links: ['About', 'Customers', 'Blog'],
+    },
+    {
+      title: 'Portfolios',
+      links: ['Sarah Andrews', 'Matthew Higgins', 'Janice Dave'],
     },
   ]
   return (
@@ -239,7 +259,7 @@ const App = () => {
         </section>
         <section className='w-full bg-white'>
           <div className='mx-auto max-w-screen-xl p-8 w-full bg-white'>
-            <div className='w-full sm:grid grid-cols-3 gap-3'>
+            <div className='w-full sm:grid grid-cols-3 gap-5'>
               {users.map((user) => (
                 <Card key={user.name} className='my-6'>
                   <CardHeader>
@@ -274,6 +294,36 @@ const App = () => {
             </div>
           </div>
         </section>
+        <footer className='w-full '>
+          <div className='mx-auto max-w-screen-xl p-8 w-full '>
+            <div className='sm:flex items-center justify-start'>
+              <div className='sm:max-w-sm'>
+                <h3 className='text-lg font-bold mt-4'>Fiber</h3>
+                <p className='text-lg mt-4 '>
+                  With Fiber, you can setup your own personal portfolio in
+                  minutes with dozens of premade, beautiful templates
+                </p>
+                <p className='my-4'>Made with ❤ by Pete</p>
+              </div>
+              <div className='w-full  sm:grid grid-cols-4 gap-4 '>
+                {footerItems.map((item) => (
+                  <div key={item.title} className='w-full my-6'>
+                    <h3 className='text-lg font-bold'>{item.title}</h3>
+                    {item.links.map((link, i) => (
+                      <a
+                        href='#'
+                        key={i}
+                        className='block my-2 hover:text-primary hover:underline hover:underline-offset-2'
+                      >
+                        {link}
+                      </a>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </footer>
       </main>
     </>
   )
